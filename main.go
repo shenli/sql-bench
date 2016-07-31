@@ -50,7 +50,7 @@ var (
 
 func init() {
 	flag.Parse()
-	statChan = make(chan *stat, 1000)
+	statChan = make(chan *stat, 10000)
 }
 
 func cleanup() {
@@ -160,7 +160,7 @@ func main() {
 	// Start
 	fmt.Println("Start Bench")
 	log.SetLevelByString(*logLevel)
-	queryChan := make(chan string, 1000)
+	queryChan := make(chan string, 10000)
 	wg := sync.WaitGroup{}
 	wgStat := sync.WaitGroup{}
 	// Start N workers
